@@ -64,6 +64,7 @@ function getTemplateWithDataFilled($data = "", $search = "", $templateName = "te
 
 function getTemplateWithManyDataFilled($dataSearchKVP, $templateName) {
     $edithTemplate = getTemplateWithDataFilled(templateName: $templateName);
+
     foreach ($dataSearchKVP as $key => $value) {
         $edithTemplate = getTemplateWithDataFilled($value, $key, actualTemplate: $edithTemplate);
     }   
@@ -107,4 +108,12 @@ function generateForm($method, $action, $inputs) {
 
 function buildHtmlStringFromArray($array) {
     return implode('<br/>', $array);
+}
+
+
+function getLikedPostsFromCookies() {
+    if (isset($_COOKIE['liked_posts'])) {
+        return json_decode($_COOKIE['liked_posts'], true); 
+    }
+    return [];
 }

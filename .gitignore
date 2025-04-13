@@ -1,0 +1,21 @@
+# IDE stuff
+.vscode/
+.idea/
+
+# Sensitive config files
+db_connect.php
+config.php
+*.env
+
+# Composer
+/vendor/
+/composer.lock
+
+# Uploads and temp
+uploads/
+*.log
+*.tmp
+
+# System files
+.DS_Store
+Thumbs.db

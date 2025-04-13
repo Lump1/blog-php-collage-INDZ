@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./frontend/styles.css">
-    <script src="./frontend/index.js"></script>
+
+    <link rel="stylesheet" href="./frontend/styles.css?v=<?php echo time(); ?>">
+    <script src="./frontend/index.js?v=<?php echo time(); ?>"></script>
 </head>
 <body>
     <header>
@@ -21,34 +22,35 @@
         </div>
     </header>
     <main>
-        <?php 
+    <?php 
         
         include("pageTemplate.php");
+        include("db_worker.php");
         echo '<div class="blog-container">';
-    
-        echo getTemplateWithManyDataFilled(
-            ["ID" => 1,
-                            "POSTTITLE" => "First post", 
-                            "POSTTEXT" => "Some Text here, it would be long, so i should write a little to check if all is aoing to be great", 
-                            "POSTLINK" => "https://music.youtube.com/watch?v=Nzm6QNXMLms&list=RDAMVMQTr_FEtGWl8",
-                            "LIKESCOUNT" => 100,
-                            "ISLIKEDSRC" => "./assets/heart.png",
-                            "ISLIKED" => "false"], 
-            "post");
 
-        echo getTemplateWithManyDataFilled(
-            ["ID" => 2,
-                            "POSTTITLE" => "Second post", 
-                            "POSTTEXT" => "Some Text here, it would be long, so i should write a little to check if all is aoing to be great", 
-                            "POSTLINK" => "https://music.youtube.com/watch?v=Nzm6QNXMLms&list=RDAMVMQTr_FEtGWl8",
-                            "LIKESCOUNT" => 254,
-                            "ISLIKEDSRC" => "./assets/heart-full.png",
-                            "ISLIKED" => "true"], 
-            "post");
+        $likedPosts = getLikedPostsFromCookies();
 
-        echo "</div>"
+        for($i = 0; $i < count($posts); $i++) {
+            $isLiked = in_array($posts[$i]['id'], $likedPosts);
+            $isLikedSrc = $isLiked ? './assets/heart-full.png' : './assets/heart.png';
 
-        ?>
+            $templateData = [
+                "ID" => $posts[$i]['id'],
+                "POSTTITLE" => $posts[$i]['title'],
+                "POSTTEXT" => $posts[$i]['content'],
+                "POSTLINK" => $posts[$i]['link'],
+                "LIKESCOUNT" => $posts[$i]['likescount'],
+                "ISLIKEDSRC" => $isLikedSrc,
+                "ISLIKED" => $isLiked ? "true" : "false"
+            ];
+            
+            echo getTemplateWithManyDataFilled($templateData, "post");
+        }
+
+        echo "</div>";
+
+    ?>
+
     </main>
     <footer>
 
