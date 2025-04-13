@@ -15,10 +15,10 @@
             LumpiPhosphate
         </p>
         <div class="links">
-            <a class="link">Link1</a>
-            <a class="link">Link2</a>
-            <a class="link">Link3</a>
-            <a class="link">Link4</a>
+            <a class="link" href="https://www.youtube.com/@lumpiphosphate"><img class="soc-media-icon" src="./assets/SocMedia/youtube.png" /></a>
+            <a class="link" href="https://www.twitch.tv/lump1irl"><img class="soc-media-icon" src="./assets/SocMedia/twitch.webp" /></a>
+            <a class="link" href="https://discord.com/users/lumpi_phosphat"><img class="soc-media-icon" src="./assets/SocMedia/discord.png" /></a>
+            <a class="link" href="https://t.me/lumpi_qwe"><img class="soc-media-icon" src="./assets/SocMedia/telegram.webp" /></a>
         </div>
     </header>
     <main>
@@ -53,7 +53,12 @@
 
     </main>
     <footer>
-
+        <p class="footer-text">
+            © lumpiphosphate 2025
+        </p>
+        <a class="footer-link" href="admin.php">
+            Admin panel
+        </a>
     </footer>
 
     <script>

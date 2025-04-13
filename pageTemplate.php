@@ -41,8 +41,8 @@ $post = <<<HTML
                     {POSTTEXT}
                 </p>
                 <div class="post-footer">
-                    <a class="post-link" target="_blank" href="{POSTLINK}">
-                        Click here!
+                    <a class="footer-link" target="_blank" href="{POSTLINK}">
+                        Посилання прікріплене до поста
                     </a>
                     <p class="liked-count" id="amount-{ID}">{LIKESCOUNT}</p>
                     <div class="clickable-like" data-id="{ID}" data-liked="{ISLIKED}">
