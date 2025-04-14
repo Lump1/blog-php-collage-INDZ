@@ -37,4 +37,4 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endforeach; ?>
 </table>
 
-<a href="logout.php">Выход</a>
+<a href="logout.php">Log out</a>

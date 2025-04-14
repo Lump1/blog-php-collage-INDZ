@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LumpiPhosphate Blog</title>
 
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icon.png">
     <link rel="stylesheet" href="./frontend/styles.css?v=<?php echo time(); ?>">
     <script src="./frontend/index.js?v=<?php echo time(); ?>"></script>
 </head>
